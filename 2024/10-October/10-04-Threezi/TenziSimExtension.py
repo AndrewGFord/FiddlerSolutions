@@ -1,14 +1,11 @@
 import numpy as np
 import random
 from scipy import stats
-#import TenziSim as ts
 import matplotlib.pyplot as plt
 
-# delete and replace with ts.rollDie
 def rollDie(nFaces):
 	return random.randint(1,nFaces)
 
-# delete and replace with ts.rollDice
 def rollDice(nDice,nFaces):
 	rolls = np.zeros(nDice)
 	rollCounts = np.zeros(nFaces)
@@ -20,7 +17,6 @@ def rollDice(nDice,nFaces):
 maxNumDice = 25
 numFacesOptions = [4,6,8,12,20]
 numFaceChoices = len(numFacesOptions)
-#nFaces = 6
 nTrials = 10000
 modeAvgs = np.zeros([numFaceChoices,maxNumDice])
 for i in range(numFaceChoices):
@@ -40,8 +36,6 @@ for i in range(numFaceChoices):
 				numer += (k+1)*modes[k]
 			mAvg = numer/nTrials
 		modeAvgs[i,nd-1] = mAvg
-
-#print(modeAvgs)
 
 plt.scatter(x=range(1,maxNumDice+1),y=modeAvgs[0,:],label='4-sided dice')
 plt.scatter(x=range(1,maxNumDice+1),y=modeAvgs[1,:],label='6-sided dice')
