@@ -17,16 +17,16 @@ def theta_integrand(theta):
 	return value
 
 # make more robust by passing theta_integrand() in as a parameter?
-def trapezoid_rule(theta_1,theta_2):
-	return 0.5*(theta_integrand(theta_1)+theta_integrand(theta_2))*(theta_2-theta_1)
+def trapezoid_rule(integrand,theta_1,theta_2):
+	return 0.5*(integrand(theta_1)+integrand(theta_2))*(theta_2-theta_1)
 
-def integrate(a,b,intervals):
+def integrate(integrand,a,b,intervals):
 	interval_length = (b-a)/intervals
 	value = 0
 	for ii in range(intervals):
 		x_1 = a+ ii*interval_length
 		x_2 = x_1 + interval_length
-		value += trapezoid_rule(x_1,x_2)
+		value += trapezoid_rule(integrand,x_1,x_2)
 	return value
 
 integral_value = 0 # saves an if statement inside the loop
@@ -35,7 +35,7 @@ prev_integral_value = 0
 # looping portion
 while (abs(diff) > eps or iterations < 2):
 	prev_integral_value = integral_value
-	integral_value = integrate(domain_min,domain_max,intervals)
+	integral_value = integrate(theta_integrand,domain_min,domain_max,intervals)
 	diff = integral_value - prev_integral_value
 	print(f'Intervals: {intervals}, Integral Value: {integral_value}, Difference: {diff}')
 	intervals *= 2
