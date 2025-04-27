@@ -20,6 +20,13 @@ The orange dots, corresponding to the angle surrounded by the fifth widest pair
 of adjacent gaps, are the solution for the extra credit.
 TreeGapWidths.png contains the widths of the corresponding pairs of gaps.
 
+For the original problem, the solution is actually identical for every maximum vision distance.
+It is the angle from the x-axis at which the tree at (2,1) appears to the viewer.
+For the extra credit problem, the solution appears to converge to one of the two trees
+that would appear adjacent to the tree located at (2,1) to the viewer.
+This tree is located close to the edge of the viewer's vision range,
+and gets replaced by new trees near the line y=x/2 as the viewer can see farther.
+
 ### Other notes
 
 I originally hypothesized that the angle surrounded by the widest pair of gaps
