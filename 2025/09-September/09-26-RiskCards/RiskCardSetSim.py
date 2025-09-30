@@ -1,5 +1,6 @@
 from itertools import permutations
 import numpy as np
+import math
 
 # 3 types of cards, each with 14 cards, plus 2 wild cards
 cards_per_type = 14
@@ -24,7 +25,7 @@ def set_exists(index_list):
     else:
         return False
 
-count = 44 * 43 * 42 * 41
+count = math.perm(n_cards, 4)
 total_cards_for_avg = 0
 # Only looking at the first 4 cards because the 5th guarantees a set
 for perm in list(permutations(range(n_cards), 4)):
